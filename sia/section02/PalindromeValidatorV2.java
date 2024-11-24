@@ -5,9 +5,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * 회문 문자열
+ * 유효한 팰린드롬
  */
-public class PalindromeValidator {
+public class PalindromeValidatorV2 {
+
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		char[] input = scanner.nextLine().toLowerCase().toCharArray();
@@ -15,18 +16,31 @@ public class PalindromeValidator {
 		Map<Boolean, String> answerMap = new HashMap<>();
 		answerMap.put(true, "YES");
 		answerMap.put(false, "NO");
-
-		boolean answer = solution(input);
-		System.out.println(answerMap.get(answer));
+		String answer = answerMap.get(solution(input));
+		System.out.println(answer);
+		
 	}
 
 	private static boolean solution(char[] input) {
 
-		int end = input.length - 1;
-		for (int index = 0; index < input.length; index++) {
-			if (input[index] != input[end--]) {
+		int left = 0;
+		int right = input.length - 1;
+
+		while (left < right) {
+			if (!Character.isAlphabetic(input[left])) {
+				left++;
+				continue;
+			}
+			if (!Character.isAlphabetic(input[right])) {
+				right--;
+				continue;
+			}
+			if (input[left] != input[right]) {
 				return false;
 			}
+
+			left++;
+			right--;
 		}
 		return true;
 
