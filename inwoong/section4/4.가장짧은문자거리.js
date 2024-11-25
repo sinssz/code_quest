@@ -6,7 +6,7 @@ const fn = (s, t) => {
   }, []);
 
   let i = 0;
-  const test = sArr.map((v, idx) => {
+  return sArr.map((v, idx) => {
     if (idx === indexTArr[i]) {
       return 0;
     }
