@@ -8,10 +8,6 @@ const fn = (word) => {
   const length = Math.floor(wordToAlphabetLowerCase.length / 2);
 
   for (let i = 0; i < length; i++) {
-    console.log(
-      wordToAlphabetLowerCase[i],
-      wordToAlphabetLowerCase[wordToAlphabetLowerCase.length - 1 - i]
-    );
     if (
       wordToAlphabetLowerCase[i] !==
       wordToAlphabetLowerCase[wordToAlphabetLowerCase.length - 1 - i]
