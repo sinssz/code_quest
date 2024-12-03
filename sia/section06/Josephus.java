@@ -4,7 +4,10 @@ package section06;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Princess {
+/**
+ * 공주 구하기
+ */
+public class Josephus {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
