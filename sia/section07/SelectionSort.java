@@ -1,4 +1,4 @@
-package section06;
+package section07;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +18,15 @@ public class SelectionSort {
 			numbers[i] = scanner.nextInt();
 		}
 
-		List<Integer> answer = solution(numbers);
-		for (int i = 0 ; i < n; i++) {
-			System.out.print(answer + " ");
-
+		int[] answer = solution(numbers);
+		for (int i = 0; i < n; i++) {
+			System.out.print(answer[i] + " ");
 		}
-		System.out.println(solution(numbers));
 	}
 
-	private static List<Integer> solution(int[] numbers) {
-		List<Integer> answer = new ArrayList<>();
+	private static int[] solution(int[] numbers) {
 		for (int i = 0; i < numbers.length; i++) {
-			for (int j = i+1; j < numbers.length; j++) {
+			for (int j = i + 1; j < numbers.length; j++) {
 				if (numbers[i] > numbers[j]) {
 					int temp = numbers[j];
 
@@ -37,10 +34,9 @@ public class SelectionSort {
 					numbers[i] = temp;
 				}
 			}
-			answer.add(numbers[i]);
 		}
 
-		return answer;
+		return numbers;
 
 	}
 }
