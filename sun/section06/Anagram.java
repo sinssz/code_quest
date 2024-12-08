@@ -27,11 +27,21 @@ public class Anagram {
 			map1.put(c, map1.getOrDefault(c, 0) + 1);
 		}
 
-		Map<Character, Integer> map2 = new HashMap<>();
+		// Map<Character, Integer> map2 = new HashMap<>();
+		// for (char c : chars2) {
+		// 	map2.put(c, map2.getOrDefault(c, 0) + 1);
+		// }
+		//
+		// return map1.equals(map2) ? "YES" : "NO";
+
 		for (char c : chars2) {
-			map2.put(c, map2.getOrDefault(c, 0) + 1);
+			if (!map1.containsKey(c) || map1.get(c) == 0) {
+				return "NO";
+			}
+
+			map1.put(c, map1.get(c) - 1);
 		}
 
-		return map1.equals(map2) ? "YES" : "NO";
+		return "YES";
 	}
 }
