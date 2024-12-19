@@ -15,21 +15,23 @@ public class LeastRecentlyUsed {
 		int[] cache = new int[cacheSize];
 
 		for (int work : works) {
-			int index = 0;
+			int hitIndex = -1;
+
+			// 1. Cache Hit 여부 확인
 			for (int i = 0; i < cacheSize; i++) {
 				if (cache[i] == work) {
-					index = i;
+					hitIndex = i;
 					break;
 				}
 			}
 
-			// index = 0 => Cache Miss | index != 0 => Cache Hit
-			if (index == 0) {
+			// 2. Cache 갱신 처리
+			if (hitIndex == -1) { // Cache Miss
 				for (int i = cacheSize - 1; i > 0; i--) {
 					cache[i] = cache[i - 1];
 				}
-			} else {
-				for (int i = index; i > 0; i--) {
+			} else { // Cache Hit
+				for (int i = hitIndex; i > 0; i--) {
 					cache[i] = cache[i - 1];
 				}
 			}
