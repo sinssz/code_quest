@@ -2,20 +2,17 @@ package section09;
 
 // 팩토리얼
 public class Factorial {
-    static int result = 1;
 
     public static void main(String[] args) {
-        int N = 4;
-        dfs(N);
-        System.out.println(result);
+        int N = 5;
+        System.out.println(factorial(N));
     }
 
-    private static void dfs(int N) {
-        if (N == 1) {
-            return;
+    private static long factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
         }
 
-        result = result * N;
-        dfs(N - 1);
+        return n * factorial(n - 1);
     }
 }
