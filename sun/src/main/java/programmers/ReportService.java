@@ -1,6 +1,9 @@
 package programmers;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 // 신고 결과 받기
 public class ReportService {
